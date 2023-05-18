@@ -1,0 +1,47 @@
+[
+	{
+		"id": 1,
+		"title": "sdsdsd",
+		"description": "sdsdsd",
+		"price": 15,
+		"thumbnail": "sdsdsd",
+		"stock": 6,
+		"code": 5
+	},
+	{
+		"id": 2,
+		"title": "lapiz",
+		"description": "lapiz negro",
+		"price": 10,
+		"thumbnail": "xxxxxxx",
+		"stock": 2,
+		"code": 4
+	},
+	{
+		"id": 3,
+		"title": "lapiz",
+		"description": "lapiz negro",
+		"price": 10,
+		"thumbnail": "xxxxxxx",
+		"stock": 2,
+		"code": 4
+	},
+	{
+		"id": 4,
+		"title": "lapiz",
+		"description": "lapiz negro",
+		"price": 10,
+		"thumbnail": "xxxxxxx",
+		"stock": 2,
+		"code": 4
+	},
+	{
+		"id": 5,
+		"title": "lapiz",
+		"description": "lapiz negro",
+		"price": 10,
+		"thumbnail": "xxxxxxx",
+		"stock": 2,
+		"code": 4
+	}
+]

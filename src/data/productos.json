@@ -3,16 +3,6 @@
 		"id": 0
 	},
 	{
-		"id": 1,
-		"title": "Chau",
-		"description": "aaaaaa",
-		"code": "11",
-		"price": 9999,
-		"status": false,
-		"stock": 1111111,
-		"category": "zzzzzz"
-	},
-	{
 		"id": 2,
 		"title": "Chau",
 		"description": "aaaaaa",

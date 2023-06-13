@@ -1,0 +1,15 @@
+<div class="bg-dark">
+    <h1 class="text-light">Bienvenidos al realtimeproducts</h1>
+    {{#each products}}
+    <div class="text-light" id="productsList">
+        
+    </div>
+    {{/each}}
+    
+</div>
+
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io()
+</script>

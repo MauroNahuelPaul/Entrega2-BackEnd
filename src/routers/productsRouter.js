@@ -4,10 +4,13 @@ const router = Router()
 
 router.get('/', async (req, res) => {
     const limit = req.query.limit
-    if (!limit) return res.status(200).json(await manager.getProducts())
+    const view = req.view_config
+    let products = await manager.getProducts()
+    if (!limit) return res.render(view,{products})
 
-    const data = await manager.getProducts()
-    res.status(200).json(data.slice(0, limit))
+    products = products.slice(0, limit)
+    res.render(view,{products})
+    /* res.status(200).json(data.slice(0, limit)) */
 
 })
 
@@ -32,7 +35,7 @@ router.put('/:pid', async (req, res) => {
     const id = req.params.pid
     const product = await manager.getElementById(parseInt(id))
     if (product == null) {
-        res.status(400).json({ menssage: `El producto ${id} no existe` })
+        res.status(400).json({ menssage: `El producto ${id} no egfgfdxiste` })
     }
     else {
         const { title, description, code, price, status, stock, category, thumbnails } = req.body

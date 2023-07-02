@@ -1,15 +1,84 @@
-<div class="bg-dark">
-    <h1 class="text-light">Bienvenidos al realtimeproducts</h1>
-    {{#each products}}
-    <div class="text-light" id="productsList">
-        
+<div class="">
+    <h1 class="">Bienvenidos al realtimeproducts</h1>
+    <div class="" id="productsDiv">
+
     </div>
-    {{/each}}
-    
+    <form id="formNewProduct" class="">
+        <label for="title">Title:</label><br><input type="text" id="title" name="Title" value="" required>
+        <label for="description">Description:</label><input type="text" id="description" name="Description" value=""
+            required>
+        <label for="code">Code:</label><input type="number" id="code" name="code" value="" required>
+        <label for="price">Price:</label><input type="number" id="price" name="price" value="" required>
+        <label for="status">Status:</label><input type="checkbox" id="status" name="status" value="false">
+        <label for="stock">Stock:</label><input type="number" id="stock" name="stock" value="" required>
+        <label for="category">Category:</label><input type="text" id="category" name="category" value="" required>
+        <input type="submit" value="Subir">
+    </form>
+
 </div>
 
 <script src="../node_modules/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
     const socket = io()
+    socket.on('products', products => {
+        const productsDiv = document.getElementById('productsDiv') 
+
+        for (let i = 1; i < products.length; i++) {
+            const producto = document.createElement('div')
+            producto.innerHTML = (`
+            <p>id:${products[i].id}</p>
+                <p>Title:${products[i].title}</p>
+                <p>Description:${products[i].description}</p>
+                <p>Code:${products[i].code}</p>
+                <p>price:${products[i].price}</p>
+                <p>status:${products[i].status}</p>
+                <p>stock:${products[i].stock}</p>
+                <p>category:${products[i].category}</p>
+                <p>thumbnails:${products[i].thumbnails}</p>
+            `)
+            botonBorrar = document.createElement('div')
+            botonBorrar.innerHTML = '<button type="button" class="btn btn-primary">Borrar</button>';
+            botonBorrar.addEventListener('click', () => {
+                console.log(products[i].id)
+                document.getElementById('productsDiv').innerHTML = ''
+                socket.emit('idBorrar', products[i].id)
+                })
+            producto.append(botonBorrar)
+            productsDiv.append(producto)
+        }
+    })
+
+    let formNewProduct = document.getElementById('formNewProduct')
+
+    formNewProduct.addEventListener('submit', function (event) {
+        event.preventDefault()
+        let title = document.getElementById('title').value
+        let description = document.getElementById('description').value
+        let code = document.getElementById('code').value
+        let price = document.getElementById('price').value
+        let status = document.getElementById('status').checked
+        let stock = document.getElementById('stock').value
+        let category = document.getElementById('category').value
+        document.getElementById('productsDiv').innerHTML = ''
+        socket.emit('product', {
+            title,
+            description,
+            code,
+            price,
+            status,
+            stock,
+            category
+        })
+        document.getElementById('title').value = ''
+        document.getElementById('description').value = ''
+        document.getElementById('code').value = ''
+        document.getElementById('price').value = ''
+        document.getElementById('status').value = ''
+        document.getElementById('stock').value = ''
+        document.getElementById('category').value = ''
+
+    })
+
+    
 </script>

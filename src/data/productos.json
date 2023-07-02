@@ -3,24 +3,14 @@
 		"id": 0
 	},
 	{
-		"id": 2,
-		"title": "Chau",
-		"description": "aaaaaa",
-		"code": "10",
-		"price": 9999,
-		"status": false,
-		"stock": 1111111,
-		"category": "zzzzzz"
-	},
-	{
 		"id": 3,
-		"title": "Hola",
-		"description": "fdfdsfdsf",
-		"code": "2234",
-		"price": 5414161,
+		"title": "121",
+		"description": "121",
+		"code": "1212",
+		"price": "121",
 		"status": false,
-		"stock": 541645,
-		"category": "dffedfdfds",
+		"stock": "1212",
+		"category": "12",
 		"thumbnails": []
 	}
 ]
